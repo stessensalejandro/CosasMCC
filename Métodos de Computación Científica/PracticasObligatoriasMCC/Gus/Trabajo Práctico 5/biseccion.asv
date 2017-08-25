@@ -1,0 +1,22 @@
+function [ raiz ] = biseccion(~('f'), a, b )
+% f: function handler
+% [a,b]: extremos del intervalo en donde se busca la raiz.
+
+tol_f = eps;
+tol_x = eps;
+
+while (((b - a) >= tol_x )|| (( abs(f(a)) >= tol_f && abs(f(b))  >= tol_f)))
+    c = (a + b)/2;
+    if ( f(c) == 0 )
+       break;
+    elseif ( f(a)*f(c) < 0 ) %hay cambio de signo.
+       b = c;
+    else
+       a = c;
+    end
+end
+
+raiz = c;
+
+end
+

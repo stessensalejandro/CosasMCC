@@ -1,0 +1,19 @@
+function [ coef_X_i ] = X_i( a, x, i )
+% Calcula el coeficiente de interpolación X_i para el punto de la abscisa
+% "a"
+%   a: abscisa. P(a,b).
+%   x: vector de coeficientes x = [0 2 4]
+%   i: índice que indica el valor actual del vector x.
+
+prod = 1;
+
+for k = 0:2:4
+    if (k ~= i)
+        prod = prod * ((a - x(k))/(x(i) - x(k)));
+    end
+end
+
+coef_X_i = prod;
+
+end
+
